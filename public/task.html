@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="./task.css">
+    <title>Edit Task</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="heading">
+
+            <h4>Edit Task</h4>
+        </div>
+        <form class="task-form form">
+            <div class="task-id-cont">
+
+                <div class="label">Task ID</div>
+                <p class="task-edit-id align"></p>
+            </div>
+            <div class="task-name-cont">
+                    <div class="label">Name</div>
+                    <input class="task-edit-name align" type="text" name="Task" id="" placeholder="e.g. Exercise">
+
+            </div>
+
+            <div class="completed-check-cont">
+                <div class="label">Completed</div>
+                <input type="checkbox" name="completed" class="task-edit-completed align" />
+            </div>
+            <button type="submit" class="task-edit-btn btn">
+                Edit
+            </button>
+            <div class="form-alert"></div>
+        </form>
+    </div>
+    <a class="backk" href="./index.html"><button class="btn back-link">Back to All Tasks </button></a>
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./edit-task.js"></script>
+</body>
+
+</html>
