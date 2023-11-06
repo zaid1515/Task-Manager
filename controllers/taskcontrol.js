@@ -82,7 +82,7 @@ const deleteTask = async (req, res) => {
         const taskId = req.params.id;
         // similar to get we have two differents methods if we want to delete using id
         // const task = await tasks.findByIdAndDelete(taskId);
-        const task = await tasks.findOneAndDelete(taskId);
+        const task = await tasks.findOneAndDelete({_id:taskId});
 
         if (!task) {
             res.status(404).json({ msg: "No such task" });
