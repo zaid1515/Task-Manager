@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const showTasks = async () => {
       
   loadingDOM.style.visibility = 'visible'
+  loadingDOM.style.height='100px'
       // loadingDOM.textContent = 'Loading...';
       tasksDOM.innerHTML = ''; // Clear the tasks list
   
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // })
         if (tasks.length === 0) {
           loadingDOM.style.visibility = 'hidden'
+          loadingDOM.style.height='0px'
           tasksDOM.innerHTML = '<h5 class="empty-list">No tasks in your list</h5>';
 
         } else {
@@ -38,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             taskElement.innerHTML = `
             <h5>
-            <span><i class="ri-check-line"></i></span>${task.name}
+            <span><i class="ri-checkbox-circle-line"></i></span>${task.name}
         </h5>
         <div class="task-links">
             <a href="task.html?id=${task._id}" class="edit-link">
@@ -58,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       
   loadingDOM.style.visibility = 'hidden'
+  loadingDOM.style.height='0px'
     };
 
     // delete-tasks
@@ -65,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const el = e.target
       if (el.parentElement.classList.contains('delete-btn')) {
         loadingDOM.style.visibility = 'visible'
+        loadingDOM.style.height='100px'
         const id = el.parentElement.dataset.id
         try {
           await axios.delete(`/api/task/${id}`)
@@ -74,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
       loadingDOM.style.visibility = 'hidden'
+      loadingDOM.style.height='0px'
     })
 
     // Function to add a task
@@ -89,10 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!response.ok) {
           throw new Error('Failed to add task');
         }
-  
+        formAlertDOM.style.color="green"
         formAlertDOM.textContent = 'Success, task added';
         formAlertDOM.classList.add('text-success');
       } catch (error) {
+        formAlertDOM.style.color="red"
         formAlertDOM.textContent = 'Error, please try again';
       } finally {
         // Clear the input field and hide the alert after a delay

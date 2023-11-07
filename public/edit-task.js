@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
   
         formAlertDOM.style.display = 'block';
+        formAlertDOM.style.color='green'
         formAlertDOM.textContent = 'Success, edited task';
         formAlertDOM.classList.add('text-success');
       } catch (error) {
